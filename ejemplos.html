@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ejemplos – Economía Circular</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">Eco<span>Circular</span></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="que-es.html">¿Qué es?</a></li>
+      <li><a href="principios.html">Principios</a></li>
+      <li><a href="beneficios.html">Beneficios</a></li>
+      <li><a href="ejemplos.html" class="active">Ejemplos</a></li>
+    </ul>
+    <button class="nav-hamburger" onclick="toggleMenu()">☰</button>
+  </nav>
+
+  <div class="page-header">
+    <span class="section-label">En la práctica</span>
+    <h1>Ejemplos reales en el mundo</h1>
+    <p>Muchas empresas y ciudades ya están liderando la transición hacia un modelo circular con resultados sorprendentes.</p>
+  </div>
+
+  <section class="section ejemplos-bg">
+    <div class="ejemplos-grid">
+      <div class="ejemplo-card">
+        <img src="images/reciclaje-plastico-oceano.jpg" alt="Recogida de plástico del océano para su reciclaje" />
+        <div class="ejemplo-content">
+          <h3>Plástico reciclado del océano</h3>
+          <p>Empresas como Adidas fabrican zapatillas con plástico recuperado de los océanos, demostrando que los residuos pueden convertirse en productos de valor.</p>
+          <span class="ejemplo-tag">♻️ Reciclaje</span>
+        </div>
+      </div>
+      <div class="ejemplo-card">
+        <img src="images/alquiler-ropa-moda-circular.jpg" alt="Servicio de alquiler de ropa como ejemplo de moda circular" />
+        <div class="ejemplo-content">
+          <h3>Moda circular y alquiler de ropa</h3>
+          <p>Plataformas como Rent the Runway o Vinted permiten alquilar y vender ropa usada, extendiendo la vida útil de las prendas y reduciendo el fast fashion.</p>
+          <span class="ejemplo-tag">👗 Moda circular</span>
+        </div>
+      </div>
+      <div class="ejemplo-card">
+        <img src="images/compostaje-residuos-organicos.jpg" alt="Compostaje de residuos orgánicos en agricultura circular" />
+        <div class="ejemplo-content">
+          <h3>Compostaje y agricultura circular</h3>
+          <p>Los residuos orgánicos de ciudades como Copenhague se transforman en compost para la agricultura, cerrando el ciclo de los nutrientes de forma natural.</p>
+          <span class="ejemplo-tag">🌱 Biociclo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>¿Listo para ser parte del cambio?</h2>
+    <p>Pequeñas acciones cotidianas forman parte del gran ciclo. Reutiliza, repara, comparte.</p>
+    <a href="index.html" class="cta-btn">Volver al inicio ↑</a>
+  </section>
+
+  <div class="page-nav-btns" style="background: white;">
+    <a href="beneficios.html" class="page-btn-prev">← Beneficios</a>
+    <a href="index.html" class="page-btn-next">Inicio →</a>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>EcoCircular</h3>
+        <p>Un proyecto educativo sobre economía circular, sostenibilidad y el futuro del planeta.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Páginas</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="que-es.html">¿Qué es?</a></li>
+          <li><a href="principios.html">Principios</a></li>
+          <li><a href="beneficios.html">Beneficios</a></li>
+          <li><a href="ejemplos.html">Ejemplos</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Referencias</h4>
+        <ul>
+          <li><a href="https://ellenmacarthurfoundation.org" target="_blank">Ellen MacArthur Foundation</a></li>
+          <li><a href="https://www.europarl.europa.eu" target="_blank">Parlamento Europeo</a></li>
+          <li><a href="https://www.miteco.gob.es" target="_blank">MITECO España</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-credits">
+        Elaborado por <strong>Alba Díaz Varona</strong>, <strong>Lucía Izquierdo Fernández</strong> y <strong>Lucía Velasco González</strong>
+      </p>
+      <p class="footer-school">IES Comuneros de Castilla · 2025–2026</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

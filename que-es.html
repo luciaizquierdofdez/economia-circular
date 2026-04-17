@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¿Qué es? – Economía Circular</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">Eco<span>Circular</span></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="que-es.html" class="active">¿Qué es?</a></li>
+      <li><a href="principios.html">Principios</a></li>
+      <li><a href="beneficios.html">Beneficios</a></li>
+      <li><a href="ejemplos.html">Ejemplos</a></li>
+    </ul>
+    <button class="nav-hamburger" onclick="toggleMenu()">☰</button>
+  </nav>
+
+  <div class="page-header">
+    <span class="section-label">Definición</span>
+    <h1>¿Qué es la economía circular?</h1>
+    <p>Un modelo económico regenerativo diseñado para eliminar los residuos y la contaminación desde el origen.</p>
+  </div>
+
+  <section class="section">
+    <div class="intro-grid">
+      <div>
+        <span class="section-label">El concepto</span>
+        <h2>Un modelo que reimagina la economía</h2>
+        <p>
+          La <strong>economía circular</strong> es un sistema económico regenerativo diseñado para eliminar los residuos y la contaminación desde el diseño. En lugar del modelo lineal tradicional "tomar → fabricar → desechar", propone que los materiales y productos se mantengan en uso durante el mayor tiempo posible.
+        </p>
+        <br />
+        <p>
+          Se basa en tres principios clave: <strong>eliminar residuos y contaminación</strong>, <strong>circular productos y materiales</strong> y <strong>regenerar la naturaleza</strong>. Es la respuesta a los límites del planeta y al agotamiento de recursos naturales.
+        </p>
+      </div>
+      <div>
+        <img src="images/modelo-lineal-vs-circular.jpg" alt="Comparación entre modelo económico lineal y circular" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--verde-palido);">
+    <span class="section-label">El ciclo completo</span>
+    <h2>Cómo funciona el ciclo</h2>
+    <p>En la economía circular, los materiales siguen un flujo continuo que minimiza pérdidas y maximiza valor.</p>
+    <div class="ciclo-grid" style="margin-top:3rem; background: var(--verde-oscuro); border-radius: 20px; overflow:hidden;">
+      <div class="ciclo-paso">
+        <div class="ciclo-num">01</div>
+        <h3>Diseño</h3>
+        <p>Los productos se diseñan pensando en su desmontaje, reparación y reutilización.</p>
+      </div>
+      <div class="ciclo-paso">
+        <div class="ciclo-num">02</div>
+        <h3>Producción</h3>
+        <p>Fabricación eficiente usando energías renovables y materiales recuperados.</p>
+      </div>
+      <div class="ciclo-paso">
+        <div class="ciclo-num">03</div>
+        <h3>Distribución</h3>
+        <p>Logística verde que optimiza transporte y reduce la huella de carbono.</p>
+      </div>
+      <div class="ciclo-paso">
+        <div class="ciclo-num">04</div>
+        <h3>Uso</h3>
+        <p>Los productos duran más; se reparan y comparten en lugar de desecharse.</p>
+      </div>
+      <div class="ciclo-paso">
+        <div class="ciclo-num">05</div>
+        <h3>Recuperación</h3>
+        <p>Al final de su vida, los materiales vuelven al ciclo como nuevos recursos.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-nav-btns">
+    <a href="index.html" class="page-btn-prev">← Inicio</a>
+    <a href="principios.html" class="page-btn-next">Principios →</a>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>EcoCircular</h3>
+        <p>Un proyecto educativo sobre economía circular, sostenibilidad y el futuro del planeta.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Páginas</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="que-es.html">¿Qué es?</a></li>
+          <li><a href="principios.html">Principios</a></li>
+          <li><a href="beneficios.html">Beneficios</a></li>
+          <li><a href="ejemplos.html">Ejemplos</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Referencias</h4>
+        <ul>
+          <li><a href="https://ellenmacarthurfoundation.org" target="_blank">Ellen MacArthur Foundation</a></li>
+          <li><a href="https://www.europarl.europa.eu" target="_blank">Parlamento Europeo</a></li>
+          <li><a href="https://www.miteco.gob.es" target="_blank">MITECO España</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-credits">
+        Elaborado por <strong>Alba Díaz Varona</strong>, <strong>Lucía Izquierdo Fernández</strong> y <strong>Lucía Velasco González</strong>
+      </p>
+      <p class="footer-school">IES Comuneros de Castilla · 2025–2026</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

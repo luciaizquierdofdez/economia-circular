@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Economía Circular – Inicio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">Eco<span>Circular</span></div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Inicio</a></li>
+      <li><a href="que-es.html">¿Qué es?</a></li>
+      <li><a href="principios.html">Principios</a></li>
+      <li><a href="beneficios.html">Beneficios</a></li>
+      <li><a href="ejemplos.html">Ejemplos</a></li>
+    </ul>
+    <button class="nav-hamburger" onclick="toggleMenu()">☰</button>
+  </nav>
+
+  <section class="hero">
+    <span class="hero-badge">🌿 Sostenibilidad · Futuro · Planeta</span>
+    <h1>El futuro es <em>circular</em></h1>
+    <p>Un nuevo modelo económico que elimina el desperdicio, regenera la naturaleza y mantiene los recursos en uso el mayor tiempo posible.</p>
+    <a href="que-es.html" class="hero-btn">Descúbrelo →</a>
+    <div class="hero-img">
+      <img src="images/hero-economia-circular.jpg" alt="Símbolo de economía circular" />
+    </div>
+  </section>
+
+  <!-- TARJETAS DE NAVEGACIÓN -->
+  <section class="section index-cards-section">
+    <span class="section-label">Explora el contenido</span>
+    <h2>¿Qué vas a encontrar?</h2>
+    <div class="index-cards">
+      <a href="que-es.html" class="index-card">
+        <span class="index-card-icon">🌍</span>
+        <h3>¿Qué es?</h3>
+        <p>Conoce el origen, la definición y la diferencia con el modelo lineal tradicional.</p>
+        <span class="index-card-link">Leer más →</span>
+      </a>
+      <a href="principios.html" class="index-card">
+        <span class="index-card-icon">⚙️</span>
+        <h3>Principios</h3>
+        <p>Los 3 pilares y 6 fundamentos sobre los que se construye la economía circular.</p>
+        <span class="index-card-link">Leer más →</span>
+      </a>
+      <a href="beneficios.html" class="index-card">
+        <span class="index-card-icon">📈</span>
+        <h3>Beneficios</h3>
+        <p>Impacto medioambiental, económico y social de adoptar un modelo circular.</p>
+        <span class="index-card-link">Leer más →</span>
+      </a>
+      <a href="ejemplos.html" class="index-card">
+        <span class="index-card-icon">💡</span>
+        <h3>Ejemplos reales</h3>
+        <p>Empresas y proyectos de todo el mundo que ya aplican la economía circular.</p>
+        <span class="index-card-link">Leer más →</span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>EcoCircular</h3>
+        <p>Un proyecto educativo sobre economía circular, sostenibilidad y el futuro del planeta.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Páginas</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="que-es.html">¿Qué es?</a></li>
+          <li><a href="principios.html">Principios</a></li>
+          <li><a href="beneficios.html">Beneficios</a></li>
+          <li><a href="ejemplos.html">Ejemplos</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Referencias</h4>
+        <ul>
+          <li><a href="https://ellenmacarthurfoundation.org" target="_blank">Ellen MacArthur Foundation</a></li>
+          <li><a href="https://www.europarl.europa.eu" target="_blank">Parlamento Europeo</a></li>
+          <li><a href="https://www.miteco.gob.es" target="_blank">MITECO España</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-credits">
+        Elaborado por <strong>Alba Díaz Varona</strong>, <strong>Lucía Izquierdo Fernández</strong> y <strong>Lucía Velasco González</strong>
+      </p>
+      <p class="footer-school">IES Comuneros de Castilla · 2025–2026</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
