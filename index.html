@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Economía Circular – IES Comuneros de Castilla</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --verde-oscuro: #2d6a4f;
+      --verde-medio: #52b788;
+      --verde-claro: #95d5b2;
+      --verde-palido: #d8f3dc;
+      --verde-menta: #b7e4c7;
+      --blanco: #f9fdf9;
+      --texto: #1b3a2d;
+      --texto-suave: #4a7c66;
+      --acento: #40916c;
+      --sombra: rgba(45, 106, 79, 0.15);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--blanco);
+      color: var(--texto);
+      overflow-x: hidden;
+    }
+
+    /* ── NAVBAR ─────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(249, 253, 249, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--verde-menta);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 6vw; height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; color: var(--verde-oscuro); font-weight: 900;
+      letter-spacing: -0.5px;
+    }
+    .nav-logo span { color: var(--verde-medio); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--texto-suave);
+      font-size: 0.9rem; font-weight: 500; transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--verde-oscuro); }
+
+    /* ── HERO ────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(160deg, var(--verde-palido) 0%, var(--verde-menta) 45%, var(--verde-claro) 100%);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; text-align: center;
+      padding: 100px 6vw 60px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2352b788' fill-opacity='0.08'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .hero-badge {
+      background: var(--verde-oscuro); color: white;
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 2px;
+      text-transform: uppercase; padding: 6px 18px; border-radius: 999px;
+      margin-bottom: 2rem; display: inline-block;
+      animation: fadeDown .8s ease both;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 7vw, 6rem);
+      color: var(--verde-oscuro); line-height: 1.05;
+      max-width: 900px; margin-bottom: 1.5rem;
+      animation: fadeDown .8s .15s ease both;
+    }
+    .hero h1 em { color: var(--acento); font-style: italic; }
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--texto-suave); max-width: 600px; line-height: 1.75;
+      margin-bottom: 2.5rem;
+      animation: fadeDown .8s .3s ease both;
+    }
+    .hero-btn {
+      background: var(--verde-oscuro); color: white;
+      padding: 14px 36px; border-radius: 999px;
+      text-decoration: none; font-weight: 500; font-size: 1rem;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 6px 24px var(--sombra);
+      animation: fadeDown .8s .45s ease both;
+    }
+    .hero-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 32px var(--sombra); }
+
+    .hero-img {
+      margin-top: 3rem;
+      width: 220px; height: 220px;
+      position: relative;
+      animation: fadeUp .9s .6s ease both;
+    }
+    .hero-img img {
+      width: 100%; height: 100%;
+      display: block; object-fit: contain;
+      position: relative; z-index: 1;
+    }
+    /* Halo que se desvanece hacia fuera */
+    .hero-img::before {
+      content: '';
+      position: absolute;
+      inset: -40px;
+      background: radial-gradient(circle, transparent 48%, var(--verde-palido) 68%, var(--verde-palido) 100%);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* ── SECCIÓN: QUÉ ES ─────────────────────────────────── */
+    .section { padding: 96px 6vw; }
+    .section-label {
+      font-size: 0.75rem; font-weight: 500; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--acento);
+      margin-bottom: 1rem; display: block;
+    }
+    .section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem); color: var(--verde-oscuro);
+      margin-bottom: 1.5rem; line-height: 1.15;
+    }
+    .section p {
+      font-size: 1.05rem; color: var(--texto-suave);
+      max-width: 680px; line-height: 1.8;
+    }
+
+    .intro-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+      align-items: center;
+    }
+    .intro-grid img {
+      width: 100%; border-radius: 16px;
+      box-shadow: 0 12px 40px var(--sombra); display: block;
+      object-fit: contain; height: 280px;
+      background: white; padding: 8px;
+    }
+
+    /* ── PRINCIPIOS ──────────────────────────────────────── */
+    .principios-bg {
+      background: linear-gradient(180deg, var(--verde-palido) 0%, white 100%);
+    }
+    .principios-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 28px; margin-top: 3rem;
+    }
+    .card {
+      background: white; border-radius: 20px;
+      padding: 36px 28px; border: 1px solid var(--verde-menta);
+      transition: transform .25s, box-shadow .25s;
+      position: relative; overflow: hidden;
+    }
+    .card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 4px; background: linear-gradient(90deg, var(--verde-medio), var(--verde-claro));
+    }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px var(--sombra); }
+    .card-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; color: var(--verde-oscuro);
+      margin-bottom: .75rem;
+    }
+    .card p { font-size: .95rem; color: var(--texto-suave); line-height: 1.7; }
+
+    /* ── DIAGRAMA CICLO ──────────────────────────────────── */
+    .ciclo-section { background: var(--verde-oscuro); color: white; }
+    .ciclo-section .section-label { color: var(--verde-claro); }
+    .ciclo-section h2 { color: white; }
+    .ciclo-section p { color: var(--verde-menta); }
+
+    .ciclo-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2px; margin-top: 3rem;
+    }
+    .ciclo-paso {
+      background: rgba(255,255,255,.06);
+      padding: 36px 24px; text-align: center;
+      transition: background .2s;
+    }
+    .ciclo-paso:hover { background: rgba(255,255,255,.12); }
+    .ciclo-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem; color: var(--verde-claro); opacity: .35;
+      line-height: 1; margin-bottom: .5rem;
+    }
+    .ciclo-paso h3 { color: white; font-size: 1.05rem; font-weight: 500; margin-bottom: .5rem; }
+    .ciclo-paso p { color: var(--verde-menta); font-size: .88rem; line-height: 1.65; }
+
+    /* ── BENEFICIOS ──────────────────────────────────────── */
+    .beneficios-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center; margin-top: 1rem;
+    }
+    .beneficios-lista { display: flex; flex-direction: column; gap: 20px; margin-top: 1.5rem; }
+    .beneficio-item {
+      display: flex; gap: 16px; align-items: flex-start;
+      padding: 20px; border-radius: 14px;
+      background: var(--verde-palido); border: 1px solid var(--verde-menta);
+      transition: transform .2s;
+    }
+    .beneficio-item:hover { transform: translateX(6px); }
+    .beneficio-icon { font-size: 1.6rem; flex-shrink: 0; }
+    .beneficio-item h4 { font-size: 1rem; font-weight: 500; color: var(--verde-oscuro); margin-bottom: .25rem; }
+    .beneficio-item p { font-size: .9rem; color: var(--texto-suave); line-height: 1.6; }
+    .beneficios-img {
+      border-radius: 24px; overflow: hidden;
+      box-shadow: 0 16px 48px var(--sombra);
+      background: #e8f5e9;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .beneficios-img img { width: 100%; display: block; object-fit: contain; height: 380px; padding: 16px; }
+
+    /* ── EJEMPLOS REALES ─────────────────────────────────── */
+    .ejemplos-bg { background: var(--verde-palido); }
+    .ejemplos-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px; margin-top: 3rem;
+    }
+    .ejemplo-card {
+      background: white; border-radius: 20px; overflow: hidden;
+      box-shadow: 0 6px 24px var(--sombra);
+      transition: transform .25s;
+    }
+    .ejemplo-card:hover { transform: translateY(-5px); }
+    .ejemplo-card img { width: 100%; height: 200px; object-fit: cover; display: block; }
+    .ejemplo-content { padding: 24px; }
+    .ejemplo-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem; color: var(--verde-oscuro); margin-bottom: .6rem;
+    }
+    .ejemplo-content p { font-size: .92rem; color: var(--texto-suave); line-height: 1.7; }
+    .ejemplo-tag {
+      display: inline-block; margin-top: .75rem;
+      background: var(--verde-palido); color: var(--acento);
+      font-size: .75rem; font-weight: 500; padding: 4px 12px; border-radius: 999px;
+    }
+
+    /* ── CTA ─────────────────────────────────────────────── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--verde-medio) 0%, var(--verde-oscuro) 100%);
+      text-align: center; padding: 100px 6vw;
+    }
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem); color: white; margin-bottom: 1rem;
+    }
+    .cta-section p { color: var(--verde-menta); font-size: 1.1rem; margin-bottom: 2.5rem; }
+    .cta-btn {
+      background: white; color: var(--verde-oscuro);
+      padding: 14px 40px; border-radius: 999px;
+      text-decoration: none; font-weight: 600; font-size: 1rem;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 8px 32px rgba(0,0,0,.15);
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(0,0,0,.25); }
+
+    /* ── FOOTER ──────────────────────────────────────────── */
+    footer {
+      background: var(--texto);
+      color: var(--verde-menta);
+      padding: 56px 6vw 36px;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px; padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .footer-brand h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; color: white; margin-bottom: .75rem;
+    }
+    .footer-brand p { font-size: .9rem; line-height: 1.7; opacity: .7; }
+    .footer-col h4 { color: white; font-size: .85rem; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+    .footer-col ul li a { color: var(--verde-menta); text-decoration: none; font-size: .9rem; opacity: .7; transition: opacity .2s; }
+    .footer-col ul li a:hover { opacity: 1; }
+
+    .footer-bottom {
+      padding-top: 28px;
+      display: flex; flex-wrap: wrap; gap: 8px;
+      justify-content: space-between; align-items: center;
+    }
+    .footer-credits { font-size: .85rem; opacity: .6; }
+    .footer-credits strong { color: var(--verde-claro); opacity: 1; font-weight: 500; }
+    .footer-school {
+      font-size: .82rem; opacity: .5;
+      font-style: italic;
+    }
+
+    /* ── ANIMACIONES ─────────────────────────────────────── */
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .intro-grid, .beneficios-grid, .footer-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .footer-grid { gap: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-logo">Eco<span>Circular</span></div>
+    <ul class="nav-links">
+      <li><a href="#que-es">¿Qué es?</a></li>
+      <li><a href="#principios">Principios</a></li>
+      <li><a href="#beneficios">Beneficios</a></li>
+      <li><a href="#ejemplos">Ejemplos</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <span class="hero-badge">🌿 Sostenibilidad · Futuro · Planeta</span>
+    <h1>El futuro es <em>circular</em></h1>
+    <p>Un nuevo modelo económico que elimina el desperdicio, regenera la naturaleza y mantiene los recursos en uso el mayor tiempo posible.</p>
+    <a href="#que-es" class="hero-btn">Descúbrelo →</a>
+    <div class="hero-img">
+      <!-- IMAGEN 1: hero-economia-circular.jpg -->
+      <img src="images/hero-economia-circular.jpg" alt="Símbolo de reciclaje y economía circular con fondo verde" />
+    </div>
+  </section>
+
+  <!-- QUÉ ES -->
+  <section class="section" id="que-es">
+    <div class="intro-grid">
+      <div>
+        <span class="section-label">¿Qué es?</span>
+        <h2>Un modelo que reimagina la economía</h2>
+        <p>
+          La <strong>economía circular</strong> es un sistema económico regenerativo diseñado para eliminar los residuos y la contaminación desde el diseño. En lugar del modelo lineal tradicional "tomar → fabricar → desechar", propone que los materiales y productos se mantengan en uso durante el mayor tiempo posible.
+        </p>
+        <br />
+        <p>
+          Se basa en tres principios clave: <strong>eliminar residuos y contaminación</strong>, <strong>circular productos y materiales</strong> y <strong>regenerar la naturaleza</strong>. Es la respuesta a los límites del planeta y al agotamiento de recursos naturales.
+        </p>
+      </div>
+      <div>
+        <!-- IMAGEN 2: modelo-lineal-vs-circular.jpg -->
+        <img src="images/modelo-lineal-vs-circular.jpg" alt="Comparación entre modelo económico lineal y circular" />
+      </div>
+    </div>
+  </section>
+
+  <!-- PRINCIPIOS -->
+  <section class="section principios-bg" id="principios">
+    <span class="section-label">Fundamentos</span>
+    <h2>Los 3 principios esenciales</h2>
+    <p>La Fundación Ellen MacArthur define la economía circular sobre tres pilares que trabajan juntos como un sistema.</p>
+    <div class="principios-grid">
+      <div class="card">
+        <span class="card-icon">🚫</span>
+        <h3>Eliminar residuos</h3>
+        <p>Los residuos no existen por naturaleza; son consecuencia de un mal diseño. La economía circular parte del diseño para que los productos no generen desperdicios desde el principio.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🔄</span>
+        <h3>Circular materiales</h3>
+        <p>Los productos técnicos se recuperan y regeneran. Los biológicos se devuelven al ciclo natural. Los materiales mantienen su valor durante el mayor tiempo posible.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🌱</span>
+        <h3>Regenerar la naturaleza</h3>
+        <p>En lugar de degradar el entorno natural, la economía circular busca mejorarlo activamente: recuperar suelos, biodiversidad y ecosistemas.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">♻️</span>
+        <h3>Reutilizar y reparar</h3>
+        <p>Antes de reciclar, se prioriza la reutilización directa, la reparación y la remanufactura para mantener el máximo valor de cada producto.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🏭</span>
+        <h3>Diseño sostenible</h3>
+        <p>Los productos se diseñan desde el inicio pensando en su segunda, tercera o cuarta vida. La durabilidad y la desmontabilidad son clave.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🤝</span>
+        <h3>Economía colaborativa</h3>
+        <p>Compartir, alquilar y usar como servicio en lugar de poseer. El valor se crea a través del uso, no de la propiedad.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CICLO -->
+  <section class="section ciclo-section">
+    <span class="section-label">El ciclo</span>
+    <h2>Cómo funciona el ciclo</h2>
+    <p>En la economía circular, los materiales siguen un flujo continuo que minimiza pérdidas y maximiza valor.</p>
+    <div class="ciclo-grid">
+      <div class="ciclo-paso">
+        <div class="ciclo-num">01</div>
+        <h3>Diseño</h3>
+        <p>Los productos se diseñan pensando en su desmontaje, reparación y reutilización.</p>
+      </div>
+      <div class="ciclo-paso">
+        <div class="ciclo-num">02</div>
+        <h3>Producción</h3>
+        <p>Fabricación eficiente usando energías renovables y materiales recuperados.</p>
+      </div>
+      <div class="ciclo-paso">
+        <div class="ciclo-num">03</div>
+        <h3>Distribución</h3>
+        <p>Logística verde que optimiza transporte y reduce la huella de carbono.</p>
+      </div>
+      <div class="ciclo-paso">
+        <div class="ciclo-num">04</div>
+        <h3>Uso</h3>
+        <p>Los productos duran más; se reparan y comparten en lugar de desecharse.</p>
+      </div>
+      <div class="ciclo-paso">
+        <div class="ciclo-num">05</div>
+        <h3>Recuperación</h3>
+        <p>Al final de su vida, los materiales vuelven al ciclo como nuevos recursos.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFICIOS -->
+  <section class="section" id="beneficios">
+    <div class="beneficios-grid">
+      <div>
+        <span class="section-label">¿Por qué importa?</span>
+        <h2>Beneficios para el planeta y la economía</h2>
+        <p>Transitar hacia una economía circular no solo reduce residuos: genera empleo, innovación y resiliencia.</p>
+        <div class="beneficios-lista">
+          <div class="beneficio-item">
+            <span class="beneficio-icon">🌍</span>
+            <div>
+              <h4>Reducción de CO₂</h4>
+              <p>Podría reducir las emisiones globales de gases de efecto invernadero en un 45% para 2030, según la Fundación Ellen MacArthur.</p>
+            </div>
+          </div>
+          <div class="beneficio-item">
+            <span class="beneficio-icon">💼</span>
+            <div>
+              <h4>Nuevos empleos</h4>
+              <p>Se estima que en Europa podría generar hasta 700.000 nuevos puestos de trabajo en sectores de reparación, reciclaje y remanufactura.</p>
+            </div>
+          </div>
+          <div class="beneficio-item">
+            <span class="beneficio-icon">💰</span>
+            <div>
+              <h4>Ahorro económico</h4>
+              <p>Las empresas europeas podrían ahorrar hasta 600.000 millones de euros anuales en costes de materiales.</p>
+            </div>
+          </div>
+          <div class="beneficio-item">
+            <span class="beneficio-icon">🌿</span>
+            <div>
+              <h4>Menos contaminación</h4>
+              <p>Drástica reducción de residuos en vertederos, plásticos en océanos y contaminación de suelos y agua.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="beneficios-img">
+        <!-- IMAGEN 3: beneficios-economia-circular.jpg -->
+        <img src="images/beneficios-economia-circular.jpg" alt="Planeta Tierra con vegetación y energías renovables simbolizando los beneficios de la economía circular" />
+      </div>
+    </div>
+  </section>
+
+  <!-- EJEMPLOS -->
+  <section class="section ejemplos-bg" id="ejemplos">
+    <span class="section-label">En la práctica</span>
+    <h2>Ejemplos reales en el mundo</h2>
+    <p>Muchas empresas y ciudades ya están liderando la transición hacia un modelo circular con resultados sorprendentes.</p>
+    <div class="ejemplos-grid">
+      <div class="ejemplo-card">
+        <!-- IMAGEN 4: reciclaje-plastico-oceano.jpg -->
+        <img src="images/reciclaje-plastico-oceano.jpg" alt="Recogida de plástico del océano para su reciclaje" />
+        <div class="ejemplo-content">
+          <h3>Plástico reciclado del océano</h3>
+          <p>Empresas como Adidas fabrican zapatillas con plástico recuperado de los océanos, demostrando que los residuos pueden convertirse en productos de valor.</p>
+          <span class="ejemplo-tag">♻️ Reciclaje</span>
+        </div>
+      </div>
+      <div class="ejemplo-card">
+        <!-- IMAGEN 5: alquiler-ropa-moda-circular.jpg -->
+        <img src="images/alquiler-ropa-moda-circular.jpg" alt="Servicio de alquiler de ropa como ejemplo de moda circular" />
+        <div class="ejemplo-content">
+          <h3>Moda circular y alquiler de ropa</h3>
+          <p>Plataformas como Rent the Runway o Vinted permiten alquilar y vender ropa usada, extendiendo la vida útil de las prendas y reduciendo el fast fashion.</p>
+          <span class="ejemplo-tag">👗 Moda circular</span>
+        </div>
+      </div>
+      <div class="ejemplo-card">
+        <!-- IMAGEN 6: compostaje-residuos-organicos.jpg -->
+        <img src="images/compostaje-residuos-organicos.jpg" alt="Compostaje de residuos orgánicos en agricultura circular" />
+        <div class="ejemplo-content">
+          <h3>Compostaje y agricultura circular</h3>
+          <p>Los residuos orgánicos de ciudades como Copenhague se transforman en compost para la agricultura, cerrando el ciclo de los nutrientes de forma natural.</p>
+          <span class="ejemplo-tag">🌱 Biociclo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>¿Listo para ser parte del cambio?</h2>
+    <p>Pequeñas acciones cotidianas forman parte del gran ciclo. Reutiliza, repara, comparte.</p>
+    <a href="#que-es" class="cta-btn">Volver al inicio ↑</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>EcoCircular</h3>
+        <p>Un proyecto educativo sobre economía circular, sostenibilidad y el futuro del planeta. Información basada en las investigaciones de la Fundación Ellen MacArthur y el Parlamento Europeo.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contenidos</h4>
+        <ul>
+          <li><a href="#que-es">¿Qué es?</a></li>
+          <li><a href="#principios">Principios</a></li>
+          <li><a href="#beneficios">Beneficios</a></li>
+          <li><a href="#ejemplos">Ejemplos reales</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Referencias</h4>
+        <ul>
+          <li><a href="https://ellenmacarthurfoundation.org" target="_blank">Ellen MacArthur Foundation</a></li>
+          <li><a href="https://www.europarl.europa.eu" target="_blank">Parlamento Europeo</a></li>
+          <li><a href="https://www.miteco.gob.es" target="_blank">MITECO España</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-credits">
+        Elaborado por <strong>Alba Díaz Varona</strong>, <strong>Lucía Izquierdo Fernández</strong> y <strong>Lucía Velasco González</strong>
+      </p>
+      <p class="footer-school">IES Comuneros de Castilla · 2025–2026</p>
+    </div>
+  </footer>
+
+</body>
+</html>
